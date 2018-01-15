@@ -20,5 +20,5 @@ Installer script for downloading and installing Shinobi CCTV on Linux or MacOS.
 2. Download and run the installer.
 
 ```
-curl -sL https://raw.githubusercontent.com/ShinobiCCTV/Shinobi-Installer/master/shinobi-install.sh | sudo -E bash -
+bash <(curl -s https://raw.githubusercontent.com/ShinobiCCTV/Shinobi-Installer/master/shinobi-install.sh)
 ```
