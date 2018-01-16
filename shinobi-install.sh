@@ -27,11 +27,15 @@ echo "*Note : Shinobi Pro is free for personal use."
 echo "*Learn more about Shinobi Pro at http://shinobi.video/pro"
 echo "(C)E or (P)ro? Default : Pro"
 read theRepoChoice
-if [ "$theRepoChoice" = "C" ] || [ "$theRepoChoice" = "c" ]; then
-    theRepo='ShinobiCCTV'
+if [ "$theRepoChoice" = "C" ] || [ "$theRepoChoice" = "c" ] || [ "$theRepoChoice" = "CE" ] || [ "$theRepoChoice" = "ce" ]; then
+    echo "Shinobi Community Editon (CE)"
+    echo "-------------------------------------"
+    theRepo='moeiscool'
     theBranch='master'
 else
     theRepo='ShinobiCCTV'
+    echo "Shinobi Professional (Pro)"
+    echo "-------------------------------------"
     echo "Install the Development branch?"
     echo "(y)es or (N)o"
     read theBranchChoice
@@ -43,7 +47,16 @@ else
         theBranch='master'
     fi
 fi
+echo "-------------------------------------"
+echo "------------ Downloading ------------"
+echo "https://github.com/$theRepo/Shinobi"
+echo "Branch : $theBranch"
+echo "-------------------------------------"
+echo "-------------------------------------"
 git clone https://github.com/$theRepo/Shinobi.git -b $theBranch
 cd Shinobi
+echo "-------------------------------------"
+echo "------------- Installing ------------"
+echo "-------------------------------------"
 chmod +x INSTALL/start.sh
 INSTALL/start.sh
