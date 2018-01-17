@@ -18,7 +18,7 @@ else
         echo "*--------------------**---------------------*"
         echo "*Shinobi requires being run as root."
         echo "*Do you want to continue without being root?"
-        echo "(Y)es or (n)o"
+        echo "(Y)es or (n)o? Default : Yes"
         read nonRootUser
         if [  "$nonRootUser" = "N" ] || [  "$nonRootUser" = "n" ]; then
             echo "Stopping..."
@@ -55,7 +55,7 @@ else
     productName="Shinobi Professional (Pro)"
     echo "-------------------------------------"
     echo "Install the Development branch?"
-    echo "(y)es or (N)o"
+    echo "(y)es or (N)o? Default : No"
     read theBranchChoice
     if [ "$theBranchChoice" = "Y" ] || [ "$theBranchChoice" = "y" ]; then
         echo "Getting the Development Branch"
