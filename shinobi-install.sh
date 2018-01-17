@@ -13,7 +13,7 @@ echo "(y)es or (N)o? Default : No"
     fi
 cd $installLocation
 echo "Opening Install Location : \"$installLocation\""
-#if [ ! -d "Shinobi" ]; then
+if [ ! -d "Shinobi" ]; then
     # Check OS
     case "$(uname -s)" in
        Darwin)
@@ -105,10 +105,12 @@ echo "Opening Install Location : \"$installLocation\""
     echo "Date : $theDateRightNow"
     echo "-------------------------------------"
     echo "-------------------------------------"
-#else
-#    echo "Shinobi already downloaded."
-#    cd Shinobi
-#fi
+else
+    echo "!-----------------------------------!"
+    echo "Shinobi already downloaded."
+    cd Shinobi
+fi
 # start the installer in the main app (or start shinobi if already installed)
+echo "*-----------------------------------*"
 sudo chmod +x INSTALL/start.sh
 sudo INSTALL/start.sh
