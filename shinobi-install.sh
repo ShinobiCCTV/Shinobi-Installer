@@ -47,7 +47,7 @@ else
         echo "Getting the Development Branch"
         theBranch='dev'
     else
-        echo "Getting the Grand Master Branch"
+        echo "Getting the Master Branch"
         theBranch='master'
     fi
 fi
