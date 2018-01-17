@@ -1,5 +1,12 @@
 #! /bin/sh
-echo "$EUID"
+case "$(uname -s)" in
+   Darwin)
+     OSTYPE='darwin'
+     ;;
+   Linux)
+     OSTYPE='linux'
+     ;;
+esac
 if [ "$OSTYPE" = "darwin"* ] && [ ! -x "$(command -v git)" ]; then
     if [ ! -x "$(command -v brew)" ]; then
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
