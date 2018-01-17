@@ -12,12 +12,12 @@ else
     fi
     if [ ! -x "$(command -v git)" ]; then
         if [ -x "$(command -v apt)" ]; then
-            apt update
-            apt install git -y
+            sudo apt update
+            sudo apt install git -y
         fi
         if [ -x "$(command -v yum)" ]; then
-            yum update
-            yum install git -y
+            sudo yum update
+            sudo yum install git -y
         fi
     fi
 fi
@@ -50,7 +50,7 @@ else
     fi
 fi
 # Download from Git repository
-git clone https://github.com/$theRepo/Shinobi.git -b $theBranch
+sudo git clone https://github.com/$theRepo/Shinobi.git -b $theBranch
 # Enter Shinobi folder "/home/Shinobi"
 cd Shinobi
 # write version number
@@ -71,5 +71,5 @@ echo "Version : $gitVersionNumber"
 echo "Date : $theDateRightNow"
 echo "-------------------------------------"
 echo "-------------------------------------"
-chmod +x INSTALL/start.sh
-INSTALL/start.sh
+sudo chmod +x INSTALL/start.sh
+sudo INSTALL/start.sh
