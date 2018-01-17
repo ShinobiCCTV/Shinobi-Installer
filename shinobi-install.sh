@@ -47,13 +47,11 @@ echo "(C)E or (P)ro? Default : Pro"
 read theRepoChoice
 if [ "$theRepoChoice" = "C" ] || [ "$theRepoChoice" = "c" ] || [ "$theRepoChoice" = "CE" ] || [ "$theRepoChoice" = "ce" ]; then
     productName="Shinobi Community Editon (CE)"
-    echo "-------------------------------------"
     theRepo='moeiscool'
     theBranch='master'
 else
     theRepo='ShinobiCCTV'
     productName="Shinobi Professional (Pro)"
-    echo "-------------------------------------"
     echo "Install the Development branch?"
     echo "(y)es or (N)o? Default : No"
     read theBranchChoice
