@@ -23,8 +23,10 @@ else
 fi
 cd /home
 echo "Install Shinobi CE or Shinobi Pro?"
+echo "---------------------------------------------"
 echo "*Note : Shinobi Pro is free for personal use."
-echo "*Learn more about Shinobi Pro at http://shinobi.video/pro"
+echo "*Learn more at http://shinobi.video/pro"
+echo "---------------------------------------------"
 echo "(C)E or (P)ro? Default : Pro"
 read theRepoChoice
 if [ "$theRepoChoice" = "C" ] || [ "$theRepoChoice" = "c" ] || [ "$theRepoChoice" = "CE" ] || [ "$theRepoChoice" = "ce" ]; then
