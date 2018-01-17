@@ -52,17 +52,22 @@ git clone https://github.com/$theRepo/Shinobi.git -b $theBranch
 # Enter Shinobi folder "/home/Shinobi"
 cd Shinobi
 # write version number
-function gitVersionNumber() {
+function getGitVersionNumber() {
   git rev-parse --short HEAD 2> /dev/null | sed "s/\(.*\)/@\1/"
 }
-echo "-------------------------------------" > version.txt
-echo "---------- Shinobi Systems ----------" >> version.txt
-echo "https://github.com/$theRepo/Shinobi" >> version.txt
-echo "Product : $productName" >> version.txt
-echo "Branch : $theBranch" >> version.txt
-echo "Version : $(gitVersionNumber)" >> version.txt
-echo "Date : $(date)" >> version.txt
-echo "-------------------------------------" >> version.txt
-echo "-------------------------------------" >> version.txt
+gitVersionNumber=$(getGitVersionNumber)
+theDateRightNow=$(date)
+cat <<EOF > version.json
+{"Product" : "$productName" , "Branch" : "$theBranch" , "Version" : "$gitVersionNumber" , "Date" : "$theDateRightNow" , "Repository" : "https://github.com/$theRepo/Shinobi"}
+EOF
+echo "-------------------------------------"
+echo "---------- Shinobi Systems ----------"
+echo "Repository : https://github.com/$theRepo/Shinobi"
+echo "Product : $productName"
+echo "Branch : $theBranch"
+echo "Version : $gitVersionNumber"
+echo "Date : $theDateRightNow"
+echo "-------------------------------------"
+echo "-------------------------------------"
 chmod +x INSTALL/start.sh
 INSTALL/start.sh
