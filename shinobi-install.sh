@@ -90,16 +90,12 @@ echo "Opening Install Location : \"$installLocation\""
     sudo git clone $gitURL.git -b $theBranch
     # Enter Shinobi folder "/home/Shinobi"
     cd Shinobi
-    # get version number
-    function getGitVersionNumber() {
-      git rev-parse --short HEAD 2> /dev/null | sed "s/\(.*\)/@\1/"
-    }
-    gitVersionNumber=$(getGitVersionNumber)
+    gitVersionNumber=$(git rev-parse HEAD)
     theDateRightNow=$(date)
     # write the version.json file for the main app to use
-    cat <<EOF > version.json
-    {"Product" : "$productName", "Branch" : "$theBranch", "Version" : "$gitVersionNumber", "Date" : "$theDateRightNow", "Repository" : "$gitURL"}
-    EOF
+    sudo touch version.json
+    sudo chmod 777 version.json
+    sudo echo '{"Product" : "'"$productName"'" , "Branch" : "'"$theBranch"'" , "Version" : "'"$gitVersionNumber"'" , "Date" : "'"$theDateRightNow"'" , "Repository" : "'"$gitURL"'"}' > version.json
     echo "-------------------------------------"
     echo "---------- Shinobi Systems ----------"
     echo "Repository : $gitURL"
