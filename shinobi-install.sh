@@ -19,7 +19,6 @@ else
         echo "*Shinobi requires being run as root."
         echo "*Do you want to continue without being root?"
         echo "(Y)es or (n)o"
-        echo "*--------------------**---------------------*"
         read nonRootUser
         if [  "$nonRootUser" = "N" ] || [  "$nonRootUser" = "n" ]; then
             echo "Stopping..."
@@ -39,7 +38,6 @@ else
 fi
 cd /home
 echo "*--------------------**---------------------*"
-echo "---------------------------------------------"
 echo "Install Shinobi CE or Shinobi Pro?"
 echo "---------------------------------------------"
 echo "*Note : Shinobi Pro is free for personal use."
