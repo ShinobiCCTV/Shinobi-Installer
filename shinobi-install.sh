@@ -1,4 +1,4 @@
-#/bin/sh
+#! /bin/sh
 if [ "$OSTYPE" == "darwin"* ] && [ ! -x "$(command -v git)" ]; then
     if [ ! -x "$(command -v brew)" ]; then
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -28,13 +28,13 @@ echo "*Learn more about Shinobi Pro at http://shinobi.video/pro"
 echo "(C)E or (P)ro? Default : Pro"
 read theRepoChoice
 if [ "$theRepoChoice" = "C" ] || [ "$theRepoChoice" = "c" ] || [ "$theRepoChoice" = "CE" ] || [ "$theRepoChoice" = "ce" ]; then
-    echo "Shinobi Community Editon (CE)"
+    productName="Shinobi Community Editon (CE)"
     echo "-------------------------------------"
     theRepo='moeiscool'
     theBranch='master'
 else
     theRepo='ShinobiCCTV'
-    echo "Shinobi Professional (Pro)"
+    productName="Shinobi Professional (Pro)"
     echo "-------------------------------------"
     echo "Install the Development branch?"
     echo "(y)es or (N)o"
@@ -47,16 +47,22 @@ else
         theBranch='master'
     fi
 fi
-echo "-------------------------------------"
-echo "------------ Downloading ------------"
-echo "https://github.com/$theRepo/Shinobi"
-echo "Branch : $theBranch"
-echo "-------------------------------------"
-echo "-------------------------------------"
+# Download from Git repository
 git clone https://github.com/$theRepo/Shinobi.git -b $theBranch
+# Enter Shinobi folder "/home/Shinobi"
 cd Shinobi
-echo "-------------------------------------"
-echo "------------- Installing ------------"
-echo "-------------------------------------"
+# write version number
+function gitVersionNumber() {
+  git rev-parse --short HEAD 2> /dev/null | sed "s/\(.*\)/@\1/"
+}
+echo "-------------------------------------" > version.txt
+echo "---------- Shinobi Systems ----------" >> version.txt
+echo "https://github.com/$theRepo/Shinobi" >> version.txt
+echo "Product : $productName" >> version.txt
+echo "Branch : $theBranch" >> version.txt
+echo "Version : $(gitVersionNumber)" >> version.txt
+echo "Date : $(date)" >> version.txt
+echo "-------------------------------------" >> version.txt
+echo "-------------------------------------" >> version.txt
 chmod +x INSTALL/start.sh
 INSTALL/start.sh
