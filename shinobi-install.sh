@@ -1,14 +1,23 @@
 #! /bin/sh
-if [ "$OSTYPE" == "darwin"* ] && [ ! -x "$(command -v git)" ]; then
+echo "$EUID"
+if [ "$OSTYPE" = "darwin"* ] && [ ! -x "$(command -v git)" ]; then
     if [ ! -x "$(command -v brew)" ]; then
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
         brew doctor
     fi
     brew install git
 else
-    if ((EUID != 0)); then
-      echo >&2 "Shinobi requires that it be run as root because PM2 is used to manage the processes. Exiting..."
-      exit 1
+    if [ "$(id -u)" != 0 ]; then
+        echo "*--------------------**---------------------*"
+        echo "*Shinobi requires being run as root."
+        echo "*Do you want to continue without being root?"
+        echo "(Y)es or (n)o"
+        echo "*--------------------**---------------------*"
+        read nonRootUser
+        if [  "$nonRootUser" = "N" ] || [  "$nonRootUser" = "n" ]; then
+            echo "Stopping..."
+            exit 1
+        fi
     fi
     if [ ! -x "$(command -v git)" ]; then
         if [ -x "$(command -v apt)" ]; then
