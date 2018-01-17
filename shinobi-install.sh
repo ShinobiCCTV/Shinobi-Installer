@@ -22,7 +22,8 @@ else
     fi
 fi
 cd /home
-clear
+echo "*--------------------**---------------------*"
+echo "---------------------------------------------"
 echo "Install Shinobi CE or Shinobi Pro?"
 echo "---------------------------------------------"
 echo "*Note : Shinobi Pro is free for personal use."
