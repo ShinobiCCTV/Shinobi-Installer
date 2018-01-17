@@ -98,13 +98,7 @@ echo "Opening Install Location : \"$installLocation\""
     theDateRightNow=$(date)
     # write the version.json file for the main app to use
     cat <<EOF > version.json
-    {
-        "Product" : "$productName",
-        "Branch" : "$theBranch" ,
-        "Version" : "$gitVersionNumber" ,
-        "Date" : "$theDateRightNow" ,
-        "Repository" : "$gitURL"
-    }
+    {"Product" : "$productName", "Branch" : "$theBranch", "Version" : "$gitVersionNumber", "Date" : "$theDateRightNow", "Repository" : "$gitURL"}
     EOF
     echo "-------------------------------------"
     echo "---------- Shinobi Systems ----------"
