@@ -52,7 +52,8 @@ else
     fi
 fi
 # Download from Git repository
-sudo git clone https://github.com/$theRepo/Shinobi.git -b $theBranch
+gitURL="https://github.com/$theRepo/Shinobi"
+sudo git clone $gitURL.git -b $theBranch
 # Enter Shinobi folder "/home/Shinobi"
 cd Shinobi
 # write version number
@@ -62,11 +63,11 @@ function getGitVersionNumber() {
 gitVersionNumber=$(getGitVersionNumber)
 theDateRightNow=$(date)
 cat <<EOF > version.json
-{"Product" : "$productName" , "Branch" : "$theBranch" , "Version" : "$gitVersionNumber" , "Date" : "$theDateRightNow" , "Repository" : "https://github.com/$theRepo/Shinobi"}
+{"Product" : "$productName" , "Branch" : "$theBranch" , "Version" : "$gitVersionNumber" , "Date" : "$theDateRightNow" , "Repository" : "$gitURL"}
 EOF
 echo "-------------------------------------"
 echo "---------- Shinobi Systems ----------"
-echo "Repository : https://github.com/$theRepo/Shinobi"
+echo "Repository : $gitURL"
 echo "Product : $productName"
 echo "Branch : $theBranch"
 echo "Version : $gitVersionNumber"
