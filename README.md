@@ -3,7 +3,7 @@ Installer script for downloading and installing Shinobi CCTV on Linux or MacOS.
 
 #### Installer Supports
 
-- Ubuntu 17.04, 17.10
+- Ubuntu 16.10.3, 17.10.1 and 18.04
 - CentOS 7
 - MacOS 10.7(+)
 
@@ -11,7 +11,7 @@ Installer script for downloading and installing Shinobi CCTV on Linux or MacOS.
 
 1. Become `root` to use the installer and run Shinobi. Use one of the following to do so.
 
-    - Ubuntu 17.04, 17.10
+    - Ubuntu 16.10.3, 17.10.1 and 18.04
         - `sudo su`
     - CentOS 7
         - `su`
