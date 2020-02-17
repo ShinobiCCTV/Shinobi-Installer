@@ -15,7 +15,7 @@ Ninja Way Installer for Shinobi CCTV
 
 #### Installer Supports
 
-- Ubuntu 17.10.1 and 18.04 (Recommended)
+- Ubuntu 18.04 or 19.10 (Recommended)
 - CentOS 7
 - MacOS 10.7(+)
 
