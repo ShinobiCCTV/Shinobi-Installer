@@ -1,9 +1,21 @@
 # Shinobi-Installer
-Installer script for downloading and installing Shinobi CCTV on Linux or MacOS.
+Ninja Way Installer for Shinobi CCTV
+
+- Official Website : http://shinobi.video
+- Documentation : http://shinobi.video/docs
+- Getting Started : http://shinobi.video/docs/start
+- Post-Install Tips : http://shinobi.video/docs/configure
+
+#### How Ninja Way Works
+
+> This script will clone a copy of Shinobi with `git`. Based on your selection of OS a script will be launched from within the `INSTALL` folder. Essentially quick-starting "The Easy Way".
+
+- Shinobi Pro : https://gitlab.com/Shinobi-Systems/Shinobi
+- Shinobi Pro (Development Branch) : https://gitlab.com/Shinobi-Systems/Shinobi/tree/dev
 
 #### Installer Supports
 
-- Ubuntu 16.10.3, 17.10.1 and 18.04
+- Ubuntu 17.10.1 and 18.04 (Recommended)
 - CentOS 7
 - MacOS 10.7(+)
 
@@ -11,7 +23,7 @@ Installer script for downloading and installing Shinobi CCTV on Linux or MacOS.
 
 1. Become `root` to use the installer and run Shinobi. Use one of the following to do so.
 
-    - Ubuntu 16.10.3, 17.10.1 and 18.04
+    - Ubuntu 17.10.1 and 18.04
         - `sudo su`
     - CentOS 7
         - `su`
